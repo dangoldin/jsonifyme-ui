@@ -4,7 +4,8 @@
   "description": "UI for jsonify.me",
   "main": "index.js",
   "scripts": {
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --history-api-fallback"
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --history-api-fallback",
+    "build": "node ./node_modules/webpack/bin/webpack.js "
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
   "dependencies": {
     "react": "15.4.2",
     "react-dom": "15.4.2",
-    "react-router": "^4.0.0"
+    "react-router": "4.0.0",
+    "react-router-dom": "4.0.0"
   }
 }
