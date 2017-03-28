@@ -9,10 +9,10 @@ import About from './views/About';
 
 ReactDOM.render(
   <Router>
-    <Route path='/' component={ App }>
-      <IndexRoute component={ Home } />
-      <Route path='about' component={ About } />
-    </Route>
+    <div>
+      <Route path='/' component={ App } />
+      <Route path='/about' component={ About } />
+    </div>
   </Router>,
   document.getElementById('app')
 );
