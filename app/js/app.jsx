@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './views/Home';
 import About from './views/About';
 import APIDocs from './views/APIDocs';
+import Footer from './components/Footer';
 
 ReactDOM.render(
   <div>
@@ -40,6 +41,7 @@ ReactDOM.render(
         <Route path='/about' component={ About } />
       </div>
     </Router>
+    <Footer />
   </div>,
   document.getElementById('app'),
 );
