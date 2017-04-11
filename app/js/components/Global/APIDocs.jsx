@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/styles';
+
 export default class APIDocs extends Component {
   render() {
     const loginExample = { username: 'your-username', email: 'your-email', password: 'your-password' };
@@ -28,21 +31,27 @@ export default class APIDocs extends Component {
         <div>
           <h4>Registration</h4>
 
-          <pre><code className='bash'>curl -H "Content-Type: application/json" -X POST -d &#39;{ JSON.stringify(loginExample) }&#39; "http://jsonify.me/register"</code></pre>
+          <SyntaxHighlighter language='bash' style={ docco }>{
+            'curl -H "Content-Type: application/json" -X POST -d ' + JSON.stringify(loginExample) + ' "http://jsonify.me/register"'
+          }</SyntaxHighlighter>
 
           <table className='table'>
             <tbody>
               <tr>
                 <td>Successful response</td>
                 <td>
-                    <pre><code className='javascript'>{ JSON.stringify(loginSuccess) }</code></pre>
+                  <SyntaxHighlighter language='javascript' style={ docco }>{
+                    JSON.stringify(loginSuccess)
+                  }</SyntaxHighlighter>
                 </td>
               </tr>
               <tr>
                 <td>Unsuccessful response</td>
                 <td>
-                    <pre><code className='javascript'>{ JSON.stringify(loginFailure) }</code></pre>
-                  </td>
+                  <SyntaxHighlighter language='javascript' style={ docco }>{
+                    JSON.stringify(loginFailure)
+                  }</SyntaxHighlighter>
+                </td>
               </tr>
             </tbody>
           </table>
