@@ -9,6 +9,8 @@ import OAuthTest from './views/OAuthTest';
 
 import Footer from './components/Footer';
 
+require('../css/style.css');
+
 ReactDOM.render(
   <div>
     <h1>jsonify.me</h1>
