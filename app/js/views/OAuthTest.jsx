@@ -13,7 +13,7 @@ export default class OAuthTest extends Component {
         <hr />
 
         <div>
-            <p>Login to jsonify.me first. Note that you will need to register via the API. Check out the docs on the <a href="/">home page</a> to get started.</p>
+            Login to jsonify.me first. Note that you will need to register via the API. Check out the docs on the <a href='/'>home page</a> to get started.
 
             <form>
                 <div>

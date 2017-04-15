@@ -6,6 +6,7 @@
     "react/prefer-stateless-function": [0]
   },
   "globals": {
-    "document": true
+    "document": true,
+    "require": true
   }
 }

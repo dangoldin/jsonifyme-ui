@@ -17,17 +17,17 @@ ReactDOM.render(
 
     <Router>
       <div>
+        <Route exact path='/' component={ Home } />
+        <Route path='/oauth-test' component={ OAuthTest } />
+        <Route path='/about' component={ About } />
+
+        <hr />
+
         <ul>
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/oauth-test'>OAuthTest</Link></li>
           <li><Link to='/about'>About</Link></li>
         </ul>
-
-        <hr />
-
-        <Route exact path='/' component={ Home } />
-        <Route path='/oauth-test' component={ OAuthTest } />
-        <Route path='/about' component={ About } />
       </div>
     </Router>
     <Footer />
