@@ -9,13 +9,15 @@ import OAuthTest from './views/OAuthTest';
 
 import Footer from './components/Footer';
 
-require('../css/style.css');
+require('../css/style.scss');
 
 ReactDOM.render(
-  <div>
-    <h1>jsonify.me</h1>
-
-    <hr />
+  <div className='main'>
+    <div>
+      <header>
+        <h1>jsonify.me</h1>
+      </header>
+    </div>
 
     <Router>
       <div>
@@ -25,7 +27,7 @@ ReactDOM.render(
 
         <hr />
 
-        <ul>
+        <ul className='nav'>
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/oauth-test'>OAuthTest</Link></li>
           <li><Link to='/about'>About</Link></li>
