@@ -60,20 +60,26 @@ export default class APIDocs extends Component {
         <div>
           <h4>Authentication</h4>
 
-          <pre><code className='bash'>curl -H "Content-Type: application/json" -X POST -d &#39;{ JSON.stringify(authExample) }&#39;' "http://jsonify.me/auth"</code></pre>
+          <SyntaxHighlighter language='bash' style={ docco }>{
+            'curl -H "Content-Type: application/json" -X POST -d ' + JSON.stringify(authExample) + ' "http://jsonify.me/auth"'
+          }</SyntaxHighlighter>
 
           <table className='table'>
             <tbody>
               <tr>
                 <td>Successful response</td>
                 <td>
-                    <pre><code className='javascript'>{ JSON.stringify(authSuccess) }</code></pre>
+                    <SyntaxHighlighter language='javascript' style={ docco }>{
+                      JSON.stringify(authSuccess)
+                    }</SyntaxHighlighter>
                   </td>
               </tr>
               <tr>
                 <td>Unsuccessful response</td>
                 <td>
-                    <pre><code className='javascript'>{ JSON.stringify(authFailure) }</code></pre>
+                    <SyntaxHighlighter language='javascript' style={ docco }>{
+                      JSON.stringify(authFailure)
+                      }</SyntaxHighlighter>
                   </td>
               </tr>
             </tbody>
@@ -83,20 +89,26 @@ export default class APIDocs extends Component {
         <div>
           <h4>Setting your subdomain</h4>
 
-          <pre><code className='bash'>curl -H "Content-Type: application/json" -H "Authorization: Bearer token-from-auth-call"  -X POST -d '{ JSON.stringify(domainSetExample) }' "http://jsonify.me/update"</code></pre>
+          <SyntaxHighlighter language='bash' style={ docco }>{
+            'curl -H "Content-Type: application/json" -H "Authorization: Bearer token-from-auth-call"  -X POST -d ' + JSON.stringify(domainSetExample) + ' "http://jsonify.me/update"'
+          }</SyntaxHighlighter>
 
           <table className='table'>
             <tbody>
               <tr>
                 <td>Successful response</td>
                 <td>
-                    <pre><code className='javascript'>{ JSON.stringify(domainSetSuccess) }</code></pre>
+                    <SyntaxHighlighter language='javascript' style={ docco }>{
+                      JSON.stringify(domainSetSuccess)
+                    }</SyntaxHighlighter>
                   </td>
               </tr>
               <tr>
                 <td>Unsuccessful response</td>
                 <td>
-                    <pre><code className='javascript'>{ JSON.stringify(domainSetFailure) }</code></pre>
+                    <SyntaxHighlighter language='javascript' style={ docco }>{
+                      JSON.stringify(domainSetFailure)
+                    }</SyntaxHighlighter>
                   </td>
               </tr>
             </tbody>
@@ -106,22 +118,30 @@ export default class APIDocs extends Component {
         <div>
           <h4>Setting your info</h4>
 
-          <pre><code className='bash'>curl -H "Content-Type: application/json" -H "Authorization: Bearer token-from-auth-call" -X POST -d 'json_object' "http://your-sub-domain/"</code></pre>
+          <SyntaxHighlighter language='bash' style={ docco }>{
+            'curl -H "Content-Type: application/json" -H "Authorization: Bearer token-from-auth-call" -X POST -d "json_object" "http://your-sub-domain/"'
+          }</SyntaxHighlighter>
 
-          <pre><code className='bash'>curl -H "Content-Type: application/json" -H "Authorization: Bearer token-from-auth-call" -X POST -d 'json_object' "http://username.jsonify.me/"</code></pre>
+          <SyntaxHighlighter language='javascript' style={ docco }>{
+            'curl -H "Content-Type: application/json" -H "Authorization: Bearer token-from-auth-call" -X POST -d "json_object" "http://username.jsonify.me/"'
+          }</SyntaxHighlighter>
 
           <table className='table'>
             <tbody>
               <tr>
                 <td>Successful response</td>
                 <td>
-                    <pre><code className='javascript'>{ JSON.stringify(infoSetSuccess) }</code></pre>
+                    <SyntaxHighlighter language='javascript' style={ docco }>{
+                      JSON.stringify(infoSetSuccess)
+                    }</SyntaxHighlighter>
                   </td>
               </tr>
               <tr>
                 <td>Unsuccessful response</td>
                 <td>
-                    <pre><code className='javascript'>{ JSON.stringify(infoSetFailure) }</code></pre>
+                    <SyntaxHighlighter language='javascript' style={ docco }>{
+                      JSON.stringify(infoSetFailure)
+                    }</SyntaxHighlighter>
                   </td>
               </tr>
             </tbody>
@@ -131,23 +151,31 @@ export default class APIDocs extends Component {
         <div>
           <h4>Getting your info</h4>
 
-          <pre><code className='bash'>curl -L -H "Content-Type: application/json" -X GET "http://your-sub-domain"</code></pre>
+          <SyntaxHighlighter language='bash' style={ docco }>{
+            'curl -L -H "Content-Type: application/json" -X GET "http://your-sub-domain"'
+          }</SyntaxHighlighter>
 
-          <pre><code className='bash'>curl -L -H "Content-Type: application/json" -X GET "http://username.jsonify.me/"</code></pre>
+          <SyntaxHighlighter language='bash' style={ docco }>{
+            'curl -L -H "Content-Type: application/json" -X GET "http://username.jsonify.me/"'
+          }</SyntaxHighlighter>
 
           <table className='table'>
             <tbody>
               <tr>
                 <td>Successful response</td>
                 <td>
-                    <pre><code className='javascript'>&#123;data from the POST call of "setting your info"&#125;</code></pre>
-                  </td>
+                  <SyntaxHighlighter language='javascript' style={ docco }>{
+                    'data from the POST call of "setting your info"'
+                  }</SyntaxHighlighter>
+                </td>
               </tr>
               <tr>
                 <td>Unsuccessful response</td>
                 <td>
-                    <pre><code className='javascript'>&#123;&#39;success&#39;: false, &#39;message&#39;: &#39;Error message&#39;&#125;</code></pre>
-                  </td>
+                  <SyntaxHighlighter language='javascript' style={ docco }>{
+                    JSON.stringify(infoSetFailure)
+                  }</SyntaxHighlighter>
+                </td>
               </tr>
             </tbody>
           </table>
