@@ -40,6 +40,7 @@ h4, h5, h6 {
 
 p {
     font-size: 14px;
+    line-height: 20px;
 }
 
 .main {
@@ -66,4 +67,13 @@ header {
 
 footer {
     min-height:50px;
+}
+
+.section {
+    padding-bottom: 20px;
+}
+
+form {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
