@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/styles';
 
+import APIDocRequest from './APIDocRequest';
+
 export default class APIDocs extends Component {
   render() {
     const loginExample = { username: 'your-username', email: 'your-email', password: 'your-password' };
@@ -28,158 +30,40 @@ export default class APIDocs extends Component {
 
         <hr />
 
-        <div>
-          <h4>Registration</h4>
+        <APIDocRequest
+          title='Registration'
+          curlRequest={ 'curl -H "Content-Type: application/json" -X POST -d ' + JSON.stringify(loginExample) + ' "http://jsonify.me/register"' }
+          successResponse={ JSON.stringify(loginSuccess) }
+          failureResponse={ JSON.stringify(loginFailure) }
+        />
 
-          <SyntaxHighlighter language='bash' style={ docco }>{
-            'curl -H "Content-Type: application/json" -X POST -d ' + JSON.stringify(loginExample) + ' "http://jsonify.me/register"'
-          }</SyntaxHighlighter>
+        <APIDocRequest
+          title='Authentication'
+          curlRequest={ 'curl -H "Content-Type: application/json" -X POST -d ' + JSON.stringify(authExample) + ' "http://jsonify.me/auth"' }
+          successResponse={ JSON.stringify(authSuccess) }
+          failureResponse={ JSON.stringify(authFailure) }
+        />
 
-          <table className='table'>
-            <tbody>
-              <tr>
-                <td>Successful response</td>
-                <td>
-                  <SyntaxHighlighter language='javascript' style={ docco }>{
-                    JSON.stringify(loginSuccess)
-                  }</SyntaxHighlighter>
-                </td>
-              </tr>
-              <tr>
-                <td>Unsuccessful response</td>
-                <td>
-                  <SyntaxHighlighter language='javascript' style={ docco }>{
-                    JSON.stringify(loginFailure)
-                  }</SyntaxHighlighter>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <APIDocRequest
+          title='Setting your subdomain'
+          curlRequest={ 'curl -H "Content-Type: application/json" -H "Authorization: Bearer token-from-auth-call"  -X POST -d ' + JSON.stringify(domainSetExample) + ' "http://jsonify.me/update"' }
+          successResponse={ JSON.stringify(domainSetSuccess) }
+          failureResponse={ JSON.stringify(domainSetFailure) }
+        />
 
-        <div>
-          <h4>Authentication</h4>
+        <APIDocRequest
+          title='Setting your info'
+          curlRequest={ 'curl -H "Content-Type: application/json" -H "Authorization: Bearer token-from-auth-call" -X POST -d "json_object" "http://your-sub-domain/"| "http://username.jsonify.me/"' }
+          successResponse={ JSON.stringify(infoSetSuccess) }
+          failureResponse={ JSON.stringify(infoSetFailure) }
+        />
 
-          <SyntaxHighlighter language='bash' style={ docco }>{
-            'curl -H "Content-Type: application/json" -X POST -d ' + JSON.stringify(authExample) + ' "http://jsonify.me/auth"'
-          }</SyntaxHighlighter>
-
-          <table className='table'>
-            <tbody>
-              <tr>
-                <td>Successful response</td>
-                <td>
-                    <SyntaxHighlighter language='javascript' style={ docco }>{
-                      JSON.stringify(authSuccess)
-                    }</SyntaxHighlighter>
-                  </td>
-              </tr>
-              <tr>
-                <td>Unsuccessful response</td>
-                <td>
-                    <SyntaxHighlighter language='javascript' style={ docco }>{
-                      JSON.stringify(authFailure)
-                      }</SyntaxHighlighter>
-                  </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div>
-          <h4>Setting your subdomain</h4>
-
-          <SyntaxHighlighter language='bash' style={ docco }>{
-            'curl -H "Content-Type: application/json" -H "Authorization: Bearer token-from-auth-call"  -X POST -d ' + JSON.stringify(domainSetExample) + ' "http://jsonify.me/update"'
-          }</SyntaxHighlighter>
-
-          <table className='table'>
-            <tbody>
-              <tr>
-                <td>Successful response</td>
-                <td>
-                    <SyntaxHighlighter language='javascript' style={ docco }>{
-                      JSON.stringify(domainSetSuccess)
-                    }</SyntaxHighlighter>
-                  </td>
-              </tr>
-              <tr>
-                <td>Unsuccessful response</td>
-                <td>
-                    <SyntaxHighlighter language='javascript' style={ docco }>{
-                      JSON.stringify(domainSetFailure)
-                    }</SyntaxHighlighter>
-                  </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div>
-          <h4>Setting your info</h4>
-
-          <SyntaxHighlighter language='bash' style={ docco }>{
-            'curl -H "Content-Type: application/json" -H "Authorization: Bearer token-from-auth-call" -X POST -d "json_object" "http://your-sub-domain/"'
-          }</SyntaxHighlighter>
-
-          <SyntaxHighlighter language='javascript' style={ docco }>{
-            'curl -H "Content-Type: application/json" -H "Authorization: Bearer token-from-auth-call" -X POST -d "json_object" "http://username.jsonify.me/"'
-          }</SyntaxHighlighter>
-
-          <table className='table'>
-            <tbody>
-              <tr>
-                <td>Successful response</td>
-                <td>
-                    <SyntaxHighlighter language='javascript' style={ docco }>{
-                      JSON.stringify(infoSetSuccess)
-                    }</SyntaxHighlighter>
-                  </td>
-              </tr>
-              <tr>
-                <td>Unsuccessful response</td>
-                <td>
-                    <SyntaxHighlighter language='javascript' style={ docco }>{
-                      JSON.stringify(infoSetFailure)
-                    }</SyntaxHighlighter>
-                  </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div>
-          <h4>Getting your info</h4>
-
-          <SyntaxHighlighter language='bash' style={ docco }>{
-            'curl -L -H "Content-Type: application/json" -X GET "http://your-sub-domain"'
-          }</SyntaxHighlighter>
-
-          <SyntaxHighlighter language='bash' style={ docco }>{
-            'curl -L -H "Content-Type: application/json" -X GET "http://username.jsonify.me/"'
-          }</SyntaxHighlighter>
-
-          <table className='table'>
-            <tbody>
-              <tr>
-                <td>Successful response</td>
-                <td>
-                  <SyntaxHighlighter language='javascript' style={ docco }>{
-                    'data from the POST call of "setting your info"'
-                  }</SyntaxHighlighter>
-                </td>
-              </tr>
-              <tr>
-                <td>Unsuccessful response</td>
-                <td>
-                  <SyntaxHighlighter language='javascript' style={ docco }>{
-                    JSON.stringify(infoSetFailure)
-                  }</SyntaxHighlighter>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <APIDocRequest
+          title='Getting your info'
+          curlRequest={ 'curl -L -H "Content-Type: application/json" -X GET "http://your-sub-domain"|"http://username.jsonify.me/"' }
+          successResponse={ 'data from the POST call of "setting your info"' }
+          failureResponse={ JSON.stringify(infoSetFailure) }
+        />
       </div>
     );
   }
