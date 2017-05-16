@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/styles';
-
 import APIDocRequest from './APIDocRequest';
 
 export default class APIDocs extends Component {

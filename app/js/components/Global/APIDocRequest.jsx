@@ -6,7 +6,7 @@ import { docco } from 'react-syntax-highlighter/dist/styles';
 export default class APIDocRequest extends Component {
   render() {
     return (
-      <div>
+      <div className='api-doc-section'>
         <h4>{ this.props.title }</h4>
 
         <SyntaxHighlighter language='bash' style={ docco }>
