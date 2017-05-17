@@ -4,7 +4,9 @@ export default class Footer extends Component {
   render() {
     return (
       <footer>
-        &copy; 2017 jsonify.me
+        <div className='main'>
+          &copy; 2017 jsonify.me
+        </div>
       </footer>
     );
   }
