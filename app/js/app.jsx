@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import browserHistory from 'react-router';
 
 import Home from './views/Home';
-import About from './views/About';
 import OAuthTest from './views/OAuthTest';
 
 import Footer from './components/Footer';
@@ -20,18 +20,14 @@ ReactDOM.render(
         </header>
       </div>
 
-      <Router>
+      <Router history={ browserHistory }>
         <div>
           <Route exact path='/' component={ Home } />
           <Route path='/oauth-test' component={ OAuthTest } />
-          <Route path='/about' component={ About } />
-
-          <hr />
 
           <ul className='nav'>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/oauth-test'>OAuthTest</Link></li>
-            <li><Link to='/about'>About</Link></li>
           </ul>
         </div>
       </Router>
