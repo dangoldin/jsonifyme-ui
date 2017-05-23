@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+var axios = require('axios');
+
 export default class OAuthTest extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,14 @@ export default class OAuthTest extends Component {
     e.preventDefault();
 
     // Make request to authenticate and get token
+    axios.post('http://localhost/login/',
+      { username: this.state.username,
+        password: this.state.password,
+      }).then(function(response) {
+
+      }).catch(function(error) {
+        console.log(error);
+      });
   }
 
   handleChange(e) {
