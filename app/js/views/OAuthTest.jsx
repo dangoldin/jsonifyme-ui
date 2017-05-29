@@ -12,6 +12,7 @@ export default class OAuthTest extends Component {
     this.state = {
       username: '',
       password: '',
+      token: '',
     };
   }
 
@@ -23,10 +24,11 @@ export default class OAuthTest extends Component {
     axios.post('http://localhost:3000/auth',
       { username: this.state.username,
         password: this.state.password,
-      }).then(function(response) {
+      }).then(function (response) {
         console.log('Success');
         console.log(response);
-      }).catch(function(error) {
+        this.setState({ token: response.token });
+      }).catch(function (error) {
         console.log('Failure');
         console.log(error);
       });
