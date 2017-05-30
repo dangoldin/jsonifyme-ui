@@ -19,6 +19,8 @@ export default class OAuthTest extends Component {
   handleLogin(e) {
     e.preventDefault();
 
+    const that = this;
+
     // Make request to authenticate and get token
     // TODO: Actually use real URL from build process
     axios.post('http://localhost:3000/auth',
@@ -27,11 +29,30 @@ export default class OAuthTest extends Component {
       }).then(function (response) {
         console.log('Success');
         console.log(response);
-        this.setState({ token: response.token });
+        that.setState({ token: response.token });
+        that.updateInfo();
       }).catch(function (error) {
         console.log('Failure');
         console.log(error);
       });
+  }
+
+  updateInfo() {
+    axios({
+      url: 'http://localhost:3000/profile',
+      method: 'post',
+      data: { test: 'test' },
+      headers: {
+        'Authorization': 'Bearer ' + this.state.token,
+      },
+      json: true,
+    }).then(function (response) {
+      console.log('Success');
+      console.log(response);
+    }).catch(function (error) {
+      console.log('Failure');
+      console.log('error');
+    });
   }
 
   handleChange(e) {
