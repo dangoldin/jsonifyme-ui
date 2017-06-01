@@ -39,9 +39,12 @@ export default class OAuthTest extends Component {
 
   updateInfo() {
     axios({
-      url: 'http://localhost:3000/profile',
+      url: 'http://localhost:3000/update',
       method: 'post',
-      data: { test: 'test' },
+      data: {
+        username: this.state.username,
+        subdomain: 'test-subdomain'
+      },
       headers: {
         'Authorization': 'Bearer ' + this.state.token,
       },
