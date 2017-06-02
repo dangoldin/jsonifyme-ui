@@ -24,23 +24,23 @@ export default class OAuthTest extends Component {
 
     // Make request to authenticate and get token
     // TODO: Actually use real URL from build process
-    axios.post('http://localhost:3000/auth',
+    axios.post(JSONIFY_URL + '/auth',
       { username: this.state.username,
         password: this.state.password,
       }).then((response) => {
         console.log('Success');
         console.log(response);
         that.setState({ token: response.token });
-        that.updateInfo();
+        that.updateSubdomain();
       }).catch((error) => {
         console.log('Failure');
         console.log(error);
       });
   }
 
-  updateInfo() {
+  updateSubdomain() {
     axios({
-      url: 'http://localhost:3000/update',
+      url: JSONIFY_URL + '/update',
       method: 'post',
       data: {
         username: this.state.username,
@@ -48,6 +48,28 @@ export default class OAuthTest extends Component {
       },
       headers: {
         'Authorization': 'Bearer ' + this.state.token,
+      },
+      json: true,
+    }).then((response) => {
+      console.log('Success');
+      console.log(response);
+    }).catch((error) => {
+      console.log('Failure');
+      console.log(error);
+    });
+  }
+
+  updateInfo() {
+    axios({
+      url: JSONIFY_URL + '/update',
+      method: 'post',
+      data: {
+        username: this.state.username,
+        subdomain: this.state.subdomain,
+      },
+      headers: {
+        'Authorization': 'Bearer ' + this.state.token,
+        'Referrer': this.state.username + '.jsonify.me',
       },
       json: true,
     }).then((response) => {
