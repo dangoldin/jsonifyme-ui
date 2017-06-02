@@ -13,6 +13,7 @@ export default class OAuthTest extends Component {
       username: '',
       password: '',
       token: '',
+      subdomain: '',
     };
   }
 
@@ -26,12 +27,12 @@ export default class OAuthTest extends Component {
     axios.post('http://localhost:3000/auth',
       { username: this.state.username,
         password: this.state.password,
-      }).then(function (response) {
+      }).then((response) => {
         console.log('Success');
         console.log(response);
         that.setState({ token: response.token });
         that.updateInfo();
-      }).catch(function (error) {
+      }).catch((error) => {
         console.log('Failure');
         console.log(error);
       });
@@ -43,18 +44,18 @@ export default class OAuthTest extends Component {
       method: 'post',
       data: {
         username: this.state.username,
-        subdomain: 'test-subdomain'
+        subdomain: this.state.subdomain,
       },
       headers: {
         'Authorization': 'Bearer ' + this.state.token,
       },
       json: true,
-    }).then(function (response) {
+    }).then((response) => {
       console.log('Success');
       console.log(response);
-    }).catch(function (error) {
+    }).catch((error) => {
       console.log('Failure');
-      console.log('error');
+      console.log(error);
     });
   }
 
@@ -95,6 +96,13 @@ export default class OAuthTest extends Component {
                   id='id_password'
                   placeholder='password'
                   name='password'
+                  onChange={ this.handleChange }
+                />
+                <input
+                  type='text'
+                  id='id_subdomain'
+                  placeholder='subdomain'
+                  name='subdomain'
                   onChange={ this.handleChange }
                 />
               </div>
