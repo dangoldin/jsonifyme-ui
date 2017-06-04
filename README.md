@@ -1,4 +1,4 @@
 # jsonifyme-ui
-UI for jsonify.me
+A simple UI for jsonify.me
 
-Describes what it does and provides some simple examples.
+Includes both the description of the API and a simple example of how it works.
