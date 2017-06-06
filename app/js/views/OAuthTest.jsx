@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Error from '../components/Error';
+
 const axios = require('axios');
 
 export default class OAuthTest extends Component {
@@ -14,6 +16,7 @@ export default class OAuthTest extends Component {
       password: '',
       token: '',
       subdomain: '',
+      error: '',
     };
   }
 
@@ -28,13 +31,12 @@ export default class OAuthTest extends Component {
       { username: this.state.username,
         password: this.state.password,
       }).then((response) => {
-        console.log('Success');
-        console.log(response);
         that.setState({ token: response.token });
         that.updateSubdomain();
       }).catch((error) => {
-        console.log('Failure');
-        console.log(error);
+        this.setState({
+          error: '' + error,
+        });
       });
   }
 
@@ -51,11 +53,10 @@ export default class OAuthTest extends Component {
       },
       json: true,
     }).then((response) => {
-      console.log('Success');
-      console.log(response);
     }).catch((error) => {
-      console.log('Failure');
-      console.log(error);
+      this.setState({
+        error: '' + error,
+      });
     });
   }
 
@@ -73,11 +74,10 @@ export default class OAuthTest extends Component {
       },
       json: true,
     }).then((response) => {
-      console.log('Success');
-      console.log(response);
     }).catch((error) => {
-      console.log('Failure');
-      console.log(error);
+      this.setState({
+        error: '' + error,
+      });
     });
   }
 
@@ -93,6 +93,7 @@ export default class OAuthTest extends Component {
     return (
       <div>
         <h1>OAuth Test</h1>
+        { this.state.error ? <Error error={ this.state.error } /> : '' }
 
         <div className='section'>
             This will create a jsonify.me profile for you based on your LinkedIn or Twitter profile.
