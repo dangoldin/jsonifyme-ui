@@ -10,3 +10,5 @@ Includes both the description of the API, some examples, and a way to edit your 
 - cd into the directory
 - npm install
 - npm run dev
+
+Note that you'll need to have access to the backend.
