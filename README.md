@@ -11,4 +11,6 @@ Includes both the description of the API, some examples, and a way to edit your 
 - npm install
 - npm run dev
 
-Note that you'll need to have access to the backend.
+Note that you'll need to have access to the backend available at jsonify.me.
+
+
