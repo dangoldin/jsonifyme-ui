@@ -1,16 +1,12 @@
 # jsonifyme-ui
 
-A simple UI for jsonify.me
-
-Includes both the description of the API, some examples, and a way to edit your jsonify.me profile.
+This is a simple app that describes what jsonify.me is, provides some API documentation, and a simple app to interact with it. 
 
 ## Running
 
 - git clone
-- cd into the directory
+- cd into the direct
 - npm install
 - npm run dev
 
-Note that you'll need to have access to the backend available at jsonify.me.
-
-
+Note that for the app functionality you'll need to hook it up to the jsonify.me backend.
