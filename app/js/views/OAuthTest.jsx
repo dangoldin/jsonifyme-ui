@@ -35,7 +35,7 @@ export default class OAuthTest extends Component {
         that.updateSubdomain();
       }).catch((error) => {
         this.setState({
-          error: '' + error,
+          error: `${error}`,
         });
       });
   }
@@ -49,13 +49,13 @@ export default class OAuthTest extends Component {
         subdomain: this.state.subdomain,
       },
       headers: {
-        'Authorization': 'Bearer ' + this.state.token,
+        Authorization: `Bearer ${this.state.token}`,
       },
       json: true,
     }).then((response) => {
     }).catch((error) => {
       this.setState({
-        error: '' + error,
+        error: `${error}`,
       });
     });
   }
@@ -69,14 +69,14 @@ export default class OAuthTest extends Component {
         subdomain: this.state.subdomain,
       },
       headers: {
-        'Authorization': 'Bearer ' + this.state.token,
-        'Referrer': this.state.username + '.jsonify.me',
+        Authorization: `Bearer ${this.state.token}`,
+        Referrer: `${this.state.username}.jsonify.me`,
       },
       json: true,
     }).then((response) => {
     }).catch((error) => {
       this.setState({
-        error: '' + error,
+        error: `${error}`,
       });
     });
   }
