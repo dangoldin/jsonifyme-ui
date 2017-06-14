@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Error from '../components/Error';
+import UpdateSubdomain from '../components/UpdateSubdomain'
 
 const axios = require('axios');
 
@@ -32,32 +33,11 @@ export default class OAuthTest extends Component {
         password: this.state.password,
       }).then((response) => {
         that.setState({ token: response.token });
-        that.updateSubdomain();
       }).catch((error) => {
         this.setState({
           error: `${error}`,
         });
       });
-  }
-
-  updateSubdomain() {
-    axios({
-      url: JSONIFY_URL + '/update',
-      method: 'post',
-      data: {
-        username: this.state.username,
-        subdomain: this.state.subdomain,
-      },
-      headers: {
-        Authorization: `Bearer ${this.state.token}`,
-      },
-      json: true,
-    }).then((response) => {
-    }).catch((error) => {
-      this.setState({
-        error: `${error}`,
-      });
-    });
   }
 
   updateInfo() {
@@ -102,35 +82,35 @@ export default class OAuthTest extends Component {
         <hr />
 
         <div className='section'>
-            Login to jsonify.me first. Note that you will need to register via the API.
-            Check out the docs on the <a href='/'>home page</a> to get started.
+          Login to jsonify.me first. Note that you will need to register via the API.
+          Check out the docs on the <a href='/'>home page</a> to get started.
 
-            <form onSubmit={ this.handleLogin }>
-              <div>
-                <input
-                  type='text'
-                  id='id_username'
-                  placeholder='username'
-                  name='username'
-                  onChange={ this.handleChange }
-                />
-                <input
-                  type='password'
-                  id='id_password'
-                  placeholder='password'
-                  name='password'
-                  onChange={ this.handleChange }
-                />
-                <input
-                  type='text'
-                  id='id_subdomain'
-                  placeholder='subdomain'
-                  name='subdomain'
-                  onChange={ this.handleChange }
-                />
-              </div>
-              <button type='submit'>Login</button>
-            </form>
+          <form onSubmit={ this.handleLogin }>
+            <div>
+              <input
+                type='text'
+                id='id_username'
+                placeholder='username'
+                name='username'
+                onChange={ this.handleChange }
+              />
+              <input
+                type='password'
+                id='id_password'
+                placeholder='password'
+                name='password'
+                onChange={ this.handleChange }
+              />
+            </div>
+            <button type='submit'>Login</button>
+          </form>
+
+          { this.state.token ?
+            <UpdateSubdomain
+              username={ this.state.username }
+              subdomain={ this.state.subdomain }
+              token={ this.state.token }
+            /> : '' }
         </div>
       </div>
     );
