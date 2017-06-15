@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Error from '../components/Error';
 import UpdateSubdomain from '../components/UpdateSubdomain'
+import Authentication from '../components/Authentication'
 
 const axios = require('axios');
 
@@ -85,25 +86,12 @@ export default class OAuthTest extends Component {
           Login to jsonify.me first. Note that you will need to register via the API.
           Check out the docs on the <a href='/'>home page</a> to get started.
 
-          <form onSubmit={ this.handleLogin }>
-            <div>
-              <input
-                type='text'
-                id='id_username'
-                placeholder='username'
-                name='username'
-                onChange={ this.handleChange }
-              />
-              <input
-                type='password'
-                id='id_password'
-                placeholder='password'
-                name='password'
-                onChange={ this.handleChange }
-              />
-            </div>
-            <button type='submit'>Login</button>
-          </form>
+          <Authentication
+            username={ this.state.username }
+            password={ this.state.password }
+            handleChange={ this.handleChange }
+            handleLogin={ this.handleLogin }
+          />
 
           { this.state.token ?
             <UpdateSubdomain

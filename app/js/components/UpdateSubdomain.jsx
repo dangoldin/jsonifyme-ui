@@ -7,6 +7,7 @@ export default class UpdateSubdomain extends Component {
     super(props);
 
     this.updateSubdomain = this.updateSubdomain.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   updateSubdomain() {
