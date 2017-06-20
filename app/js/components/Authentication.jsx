@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 
-const axios = require('axios');
-
 export default class Authentication extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <form onSubmit={ this.props.handleLogin }>

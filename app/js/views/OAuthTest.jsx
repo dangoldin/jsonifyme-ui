@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import Error from '../components/Error';
-import UpdateSubdomain from '../components/UpdateSubdomain'
-import Authentication from '../components/Authentication'
+import UpdateSubdomain from '../components/UpdateSubdomain';
+import Authentication from '../components/Authentication';
 
 const axios = require('axios');
 
