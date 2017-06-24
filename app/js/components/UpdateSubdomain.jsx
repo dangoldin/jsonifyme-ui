@@ -24,9 +24,7 @@ export default class UpdateSubdomain extends Component {
       json: true,
     }).then((response) => {
     }).catch((error) => {
-      // this.setState({
-      //   error: `${error}`,
-      // });
+      this.props.setError(error);
     });
   }
 

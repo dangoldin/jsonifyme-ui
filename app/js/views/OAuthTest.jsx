@@ -12,6 +12,7 @@ export default class OAuthTest extends Component {
 
     this.handleLogin = this.handleLogin.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.setError = this.setError.bind(this);
 
     this.state = {
       username: '',
@@ -20,6 +21,12 @@ export default class OAuthTest extends Component {
       subdomain: '',
       error: '',
     };
+  }
+
+  setError(error) {
+    this.setState({
+      error: `${error}`,
+    });
   }
 
   handleLogin(e) {
@@ -91,6 +98,7 @@ export default class OAuthTest extends Component {
             password={ this.state.password }
             handleChange={ this.handleChange }
             handleLogin={ this.handleLogin }
+            setError={ this.setError }
           />
 
           { this.state.token ?
@@ -98,6 +106,7 @@ export default class OAuthTest extends Component {
               username={ this.state.username }
               subdomain={ this.state.subdomain }
               token={ this.state.token }
+              setError={ this.setError }
             /> : '' }
         </div>
       </div>
