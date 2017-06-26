@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Error from '../components/Error';
+import Error from '../components/Global/Error';
 import UpdateSubdomain from '../components/UpdateSubdomain';
 import Authentication from '../components/Authentication';
 
